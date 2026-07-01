@@ -62,7 +62,7 @@
         async function fetchQuote() {
             const mood = document.getElementById('moodInput').value.trim() || '자신감을 주고 아침 기분이 좋아지는 긍정적인 감성';
             
-            if (!apiKey || apiKey.includes("여기에_본인의_오픈AI_API_키를_넣으세요")) {
+            if (!apiKey || apiKey.includes("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")) {
                 alert('코드 안의 apiKey 변수에 실제 OpenAI API 키를 입력해주세요!');
                 return;
             }
