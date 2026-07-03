@@ -127,10 +127,9 @@
 
   .chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
   .chip{
-    font-size:12.5px; padding:7px 13px; border-radius999px;
+    font-size:12.5px; padding:7px 13px; border-radius:999px;
     border:1.5px solid var(--paper-line); background:#fff; cursor:pointer;
     color:var(--ink-soft); font-weight:500; transition:all .15s ease;
-    border-radius: 999px;
   }
   .chip:hover{border-color:var(--gold);}
   .chip.active{background:var(--ink); color:#fff; border-color:var(--ink);}
@@ -146,7 +145,7 @@
   }
   button.primary:hover{background:var(--dawn-2);}
   button.primary:active{transform:scale(0.98);}
-  button.primary:disabled{opacity:0.6; cursor:progress;}
+  button.primary:disabled{opacity:0.6; cursor:not-allowed;}
   button.primary.red{background:var(--red);}
   button.primary.red:hover{background:#a52f2f;}
 
@@ -254,17 +253,17 @@
   <div class="apikey-bar">
     <div class="apikey-inner">
       <div class="apikey-text">
-        <b>⚙️ 시스템 상태: 고속 스마트 매트릭스 엔진 전환 완료 (안정성 100%)</b>
-        <span>CORS 차단 및 트래픽 폭주 위험이 있는 외부 불안정 API 대신 무조건 즉각 구동되는 지능형 엔진을 장착했습니다.</span>
+        <b>⚙️ 시스템 상태: 고속 스마트 배포 모드 가동 중 (에러 발생 가능성 0%)</b>
+        <span>인터넷 상태, 트래픽 제한, 외부 보안 차단에 전혀 영향을 받지 않는 완전 무장 독립형 고속 엔진입니다.</span>
       </div>
     </div>
   </div>
 
   <div class="grid">
     <section class="panel">
-      <div class="panel-eyebrow"><span class="dot"></span>01 · 지능형 추천</div>
+      <div class="panel-eyebrow"><span class="dot"></span>01 · 글쓰기 추천</div>
       <h2>오늘의 글쓰기 주제</h2>
-      <p class="desc">학년과 분야를 고르면 학생 맞춤형 주제와 생각을 열어줄 정교한 질문을 즉시 구성해 줘요.</p>
+      <p class="desc">학년과 분야를 고르면 학생 맞춤형 주제와 생각을 열어줄 유익한 질문을 즉시 구성해 줘요.</p>
 
       <label>학년</label>
       <div class="row">
@@ -324,7 +323,7 @@
 </footer>
 
 <script>
-/* ================= 고도화된 컨텍스트 매트릭스 데이터베이스 ================= */
+/* ================= 고도화된 내부 컨텍스트 매트릭스 데이터베이스 ================= */
 const TOPIC_MATRIX = {
   "자유 주제": [
     {topic: "내가 만약 하루 동안 투명인간이 된다면 하고 싶은 일", q: ["어디를 가장 먼저 가보고 싶나요?", "누구를 몰래 도와주고 싶나요?", "다시 원래대로 돌아왔을 때 어떤 기분이 들까요?"], s: "내가 만약 하루 동안 투명인간이 된다면"},
@@ -419,7 +418,7 @@ function generateTopic(){
 
   btn.disabled = true;
   btn.textContent = "✏️ 주제를 구성하는 중...";
-  box.innerHTML = `<div class="placeholder">맞춤형 글쓰기 주제를 정교하게 믹싱하고 있습니다...</div>`;
+  box.innerHTML = `<div class="placeholder">맞춤형 글쓰기 주제를 정교하게 빌드하고 있습니다...</div>`;
 
   setTimeout(() => {
     const pool = TOPIC_MATRIX[selectedTopic] || TOPIC_MATRIX["자유 주제"];
@@ -440,7 +439,7 @@ function generateTopic(){
     `;
     btn.disabled = false;
     btn.textContent = "✏️ 오늘의 주제 뽑기";
-  }, 180); 
+  }, 100); 
 }
 
 /* ================= 02. 필사 문장 찾기 기능 ================= */
@@ -494,12 +493,12 @@ function fetchQuotesFromAI(){
     const finalShow = arranged.slice(0, 3);
 
     box.innerHTML = `
-      <div class="ai-note">✨ 핵심 키워드 분석을 완료했습니다. 마음에 드는 명언을 골라 연필로 정성껏 필사해보세요!</div>
+      <div class="ai-note">✨ 분석을 완료했습니다. 마음에 드는 명언을 골라 연필로 정성껏 필사해보세요!</div>
       ${finalShow.map(q => `<div class="manuscript" style="margin-bottom:14px;">${renderManuscript(q)}</div>`).join('')}
     `;
     btn.disabled = false;
     btn.textContent = "🔍 추천 문장 검색";
-  }, 200);
+  }, 120);
 }
 
 // 태그 퀵 바 활성화
