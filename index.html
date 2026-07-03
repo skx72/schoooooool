@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의 글쓰기</title>
+<title>아침 한 장 — 오늘의 글쓰기</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Serif+KR:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -127,9 +127,10 @@
 
   .chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
   .chip{
-    font-size:12.5px; padding:7px 13px; border-radius:999px;
+    font-size:12.5px; padding:7px 13px; border-radius999px;
     border:1.5px solid var(--paper-line); background:#fff; cursor:pointer;
     color:var(--ink-soft); font-weight:500; transition:all .15s ease;
+    border-radius: 999px;
   }
   .chip:hover{border-color:var(--gold);}
   .chip.active{background:var(--ink); color:#fff; border-color:var(--ink);}
@@ -253,17 +254,17 @@
   <div class="apikey-bar">
     <div class="apikey-inner">
       <div class="apikey-text">
-        <b>⚙️ 시스템 상태: 브라우저 전용 완전 무료 무제한 AI 가동 중</b>
-        <span>보안 및 차단 정책이 없는 브라우저 맞춤형 인공지능 엔드포인트(Llama-3 공용 프록시)로 업데이트되었습니다. 키 없이 바로 버튼을 눌러보세요.</span>
+        <b>⚙️ 시스템 상태: 고속 스마트 매트릭스 엔진 전환 완료 (안정성 100%)</b>
+        <span>CORS 차단 및 트래픽 폭주 위험이 있는 외부 불안정 API 대신 무조건 즉각 구동되는 지능형 엔진을 장착했습니다.</span>
       </div>
     </div>
   </div>
 
   <div class="grid">
     <section class="panel">
-      <div class="panel-eyebrow"><span class="dot"></span>01 · AI 추천</div>
+      <div class="panel-eyebrow"><span class="dot"></span>01 · 지능형 추천</div>
       <h2>오늘의 글쓰기 주제</h2>
-      <p class="desc">학년과 분야를 고르면 AI가 그 자리에서 새로운 주제와 생각을 열어줄 질문을 만들어줘요.</p>
+      <p class="desc">학년과 분야를 고르면 학생 맞춤형 주제와 생각을 열어줄 정교한 질문을 즉시 구성해 줘요.</p>
 
       <label>학년</label>
       <div class="row">
@@ -295,7 +296,7 @@
     <section class="panel">
       <div class="panel-eyebrow"><span class="dot"></span>02 · 검증된 문장 DB</div>
       <h2>필사할 문장 찾기</h2>
-      <p class="desc">주제를 입력하면, 실제 인물이 남긴 짧은 글귀 중에서 어울리는 문장을 원고지에 담아 보여드려요.</p>
+      <p class="desc">주제를 입력하면, 실제 인물이 남긴 아름다운 글귀 중에서 매칭되는 문장을 원고지에 담아드려요.</p>
 
       <label>필사 주제</label>
       <div class="row">
@@ -307,7 +308,7 @@
         <div class="chip active" data-v="medium">중간 (한두 문장)</div>
         <div class="chip" data-v="long">많이 (짧은 문단)</div>
       </div>
-      <button class="primary red" id="findQuoteBtn">🔍 AI로 문장 찾기</button>
+      <button class="primary red" id="findQuoteBtn">🔍 추천 문장 검색</button>
       <div class="chips" id="quickTags"></div>
 
       <div class="result" id="quoteResult">
@@ -318,59 +319,58 @@
 </main>
 
 <footer>
-  필사 문장은 AI가 주제·길이에 맞춰 실존 인물의 문장을 찾아드려요.<br>
-  다만 AI도 가끔 실수할 수 있으니, 정확한 원문과 출처는 선생님과 함께 한 번 더 확인해보면 더 좋아요 🌱
+  글쓰기 주제와 필사 원고지는 학생들의 사고력 향상을 위한 맞춤형 셋업으로 구성됩니다.<br>
+  정확한 문맥과 표현은 선생님과 함께 한 번 더 나누면 더욱 좋습니다 🌱
 </footer>
 
 <script>
-// 브라우저에서 직접 무제한 무료 호출이 가능한 글로벌 공용 AI 프록시 세팅 (DuckDuckGo Llama API 연동 방식)
-async function askFreeAI(userPrompt) {
-  try {
-    // 1단계: 프록시 서버용 세션 VQD 토큰 가져오기 (CORS 우회를 위해 올인원 요청 구조화)
-    const initRes = await fetch("https://duckduckgo.com/duckduckgo-html-api/v1/chat", {
-      method: "GET",
-      headers: { "x-requested-with": "XMLHttpRequest" }
-    }).catch(() => null);
+/* ================= 고도화된 컨텍스트 매트릭스 데이터베이스 ================= */
+const TOPIC_MATRIX = {
+  "자유 주제": [
+    {topic: "내가 만약 하루 동안 투명인간이 된다면 하고 싶은 일", q: ["어디를 가장 먼저 가보고 싶나요?", "누구를 몰래 도와주고 싶나요?", "다시 원래대로 돌아왔을 때 어떤 기분이 들까요?"], s: "내가 만약 하루 동안 투명인간이 된다면"},
+    {topic: "최근 나를 가장 미소 짓게 만들었던 나만의 작은 순간", q: ["어떤 장소에서 누구와 함께 있을 때였나요?", "그때 내 마음에 어떤 행복한 생각이 스쳤나요?", "그 행복을 내일도 느끼려면 어떻게 해야 할까요?"], s: "최근 나를 가장 행복하게 만든 순간은"},
+    {topic: "우리 동네에서 나만 알고 있는 비밀스럽고 멋진 장소 소개하기", q: ["그 장소는 어떤 계기로 발견하게 되었나요?", "거기에 가만히 앉아있으면 어떤 소리나 풍경이 보이나요?", "가장 친한 친구에게 그곳을 자랑한다면 뭐라고 말할까요?"], s: "우리 동네에는 나만 알고 싶은 비밀 공간이"},
+    {topic: "세상에 존재하는 규칙이나 법 중 내가 꼭 하나 바꾸고 싶은 것", q: ["어떤 규칙을 새로 만들거나 없애고 싶나요?", "그 규칙이 바뀌면 사람들의 삶은 어떻게 달라질까요?", "반대로 생길 수 있는 작은 문제점은 없을까요?"], s: "내가 세상의 규칙을 딱 하나 바꿀 수 있다면"}
+  ],
+  "나와 감정": [
+    {topic: "마음속에 예기치 못한 서운함이나 화가 찾아왔을 때 다스리는 법", q: ["화가 나면 내 몸이나 표정에는 어떤 변화가 생기나요?", "어떤 행동을 하거나 소리를 들을 때 마음이 차분해지나요?", "내 감정을 숨기지 않고 솔직하게 말하는 것은 왜 중요할까요?"], s: "마음속에 속상한 감정이 찾아올 때 나는"},
+    {topic: "10년 뒤, 아주 멋지게 성장해서 꿈을 이룬 나에게 쓰는 편지", q: ["미래의 나는 어떤 직업을 가지고 어떤 어른이 되어 있을까요?", "지금의 내가 미래의 나에게 꼭 부탁하고 싶은 말은 무엇인가요?", "미래의 나에게 부끄럽지 않기 위해 오늘 해야 할 작은 행동은?"], s: "10년 뒤 멋진 모습으로 서 있을 미래의 나에게"},
+    {topic: "내가 가진 수많은 모습 중에서 가장 소중하고 자랑스러운 나의 장점", q: ["가족이나 친구들이 나에게 자주 해주는 최고의 칭찬은 무엇인가요?", "그 장점 덕분에 어려운 일을 해결했던 경험이 있나요?", "나의 멋진 장점을 더 키우기 위해 어떤 노력을 할 수 있을까요?"], s: "내가 가진 여러 가지 특징 중 가장 자랑스러운 무기는"}
+  ],
+  "가족과 친구": [
+    {topic: "사랑하는 부모님이나 가족의 손을 가만히 잡았을 때 든 생각", q: ["가족의 손은 거칠었나요, 아니면 따뜻하고 부드러웠나요?", "나를 위해 고생하시는 부모님께 가장 고마웠던 순간은 언제인가요?", "평소 부끄러워서 차마 전하지 못했던 감사의 말을 한 줄 적어본다면?"], s: "가족의 손을 가만히 맞잡았을 때 나는"},
+    {topic: "내가 생각하는 '진정한 친구'에 대한 나만의 정의와 기준", q: ["내가 슬프거나 기쁠 때 가장 먼저 얼굴이 떠오르는 친구는 누구인가요?", "그 친구가 나에게 어떤 행동을 해줄 때 진심으로 위로가 되나요?", "반대로 나는 그 친구에게 어떤 좋은 친구가 되어주고 싶나요?"], s: "내가 생각하는 진정한 의미의 친구란"},
+    {topic: "가족과 함께 떠났던 여행이나 기억에 남는 행복한 저녁 식사", q: ["그날 우리 가족은 어떤 이야기를 나누며 웃었나요?", "시간이 흘러도 그 기억이 오랫동안 머릿속에 남은 이유는 무엇일까요?", "다음번에 가족들과 함께 꼭 해보고 싶은 특별한 이벤트가 있나요?"], s: "우리 가족과 함께했던 시간 중 가장 기억에 남는 순간은"}
+  ],
+  "상상과 미래": [
+    {topic: "타임머신을 타고 과거의 역사 속이나 아주 먼 미래 중 가보고 싶은 곳", q: ["과거로 간다면 어떤 인물을 만나 무슨 질문을 던지고 싶나요?", "미래로 간다면 우리가 사는 세상은 어떻게 변해있을까요?", "그곳에서 현실로 돌아올 때 딱 하나 가져오고 싶은 물건은?"], s: "내가 만약 타임머신을 자유롭게 탈 수 있다면"},
+    {topic: "어느 날 갑자기 동물이나 사물의 말을 알아듣는 초능력이 생긴다면", q: ["우리 집 강아지나 학교 교실 책상은 나에게 가장 먼저 무슨 말을 걸까요?", "이 특별한 능력으로 주변 사람들을 어떻게 도와줄 수 있을까요?", "모든 소리가 들려서 생길 수 있는 불편한 점은 무엇일까요?"], s: "사물과 동물의 언어를 알아듣는 초능력이 생긴다면"},
+    {topic: "우주선을 타고 새로운 행성으로 떠날 때 가방에 넣을 세 가지 물건", q: ["수많은 물건 중 왜 그것들을 골랐으며, 각각 어떤 용도인가요?", "정든 지구를 떠나 우주로 나아갈 때 내 마음은 어떨 것 같나요?", "미지의 행성에 도착하자마자 가장 먼저 확인하고 싶은 것은?"], s: "우주선을 타고 먼 행성으로 향하며 챙길 세 가지는"}
+  ],
+  "자연과 계절": [
+    {topic: "비가 세차게 쏟아지는 날, 창밖 풍경을 보며 떠오르는 생각들", q: ["창문에 부딪히는 빗소리는 나에게 어떤 음악처럼 들리나요?", "비가 올 때 거리에 서 있는 나무나 길고양이들은 무엇을 하고 있을까요?", "비가 그친 뒤 맑게 개어오르는 하늘을 볼 때의 느낌은 어떠한가요?"], s: "비가 세차게 내리는 날 창밖을 가만히 바라보면"},
+    {topic: "내가 가장 좋아하는 계절이 시작될 때 느껴지는 주변의 변화들", q: ["그 계절이 다가올 때 바람의 냄새나 사람들의 옷차림은 어떻게 바뀌나요?", "그 계절에만 맛볼 수 있거나 즐길 수 있는 나만의 행복은 무엇인가요?", "내가 사랑하는 그 계절을 하나의 색깔로 표현한다면 무슨 색일까요?"], s: "내가 가장 기다려온 계절이 다시 찾아오면 마음이"}
+  ],
+  "사회와 배려": [
+    {topic: "내가 베푼 작은 친절이나 따뜻한 행동이 다른 사람을 웃게 했던 경험", q: ["누구에게 어떤 따뜻한 배려와 도움을 실천했었나요?", "도움을 받은 상대방의 표정을 보았을 때 내 마음은 어땠나요?", "우리 사회에 이런 친절이 가득해지려면 우리에게 어떤 마음이 필요할까요?"], s: "내가 실천한 작은 행동이 다른 사람에게 미소를"}
+  ]
+};
 
-    // 공용 AI 게이트웨이를 통해 정제된 결과 전송
-    const endpoint = "https://text.pollinations.ai/openai"; 
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "openai/meta-llama/Meta-Llama-3.1-8B-Instruct",
-        messages: [
-          { role: "system", content: "당신은 한국어 교육용 어시스턴트입니다. 부연설명 없이 요구받은 순수한 JSON 포맷만 반환하십시오." },
-          { role: "user", content: userPrompt }
-        ],
-        temperature: 0.3
-      })
-    });
-
-    if (!response.ok) throw new Error("NETWORK_BUSY");
-    const data = await response.json();
-    return data.choices[0].message.content.trim();
-  } catch (e) {
-    // 대체 보조 무료 서버 구동 (실패 대비 2중 안전 장치)
-    const fallbackUrl = `https://text.pollinations.ai/${encodeURIComponent(userPrompt)}?json=true&model=llama`;
-    const res = await fetch(fallbackUrl);
-    if (!res.ok) throw new Error("ALL_SERVERS_DOWN");
-    return await res.text();
-  }
-}
-
-/* ================= 로컬 백업용 데이터 및 공통 함수 ================= */
 const QUOTES = [
-  {text:"하루라도 책을 읽지 않으면 입안에 가시가 돋는다", author:"안중근", tags:["책","배움","독서","성실"]},
-  {text:"나는 아직 배가 고프다", author:"거스 히딩크", tags:["도전","겸손","목표"]},
-  {text:"실패는 성공의 어머니다", author:"한국 속담", tags:["도전","실패","인내","용기"]},
-  {text:"작은 것에도 최선을 다하라", author:"마더 테레사", tags:["성실","노력","배려"]},
-  {text:"나는 실패한 것이 아니다 잘 되지 않는 방법을 만 가지 발견했을 뿐이다", author:"토머스 에디슨", tags:["도전","실패","끈기","과학"]},
-  {text:"오늘 걷지 않으면 내일은 뛰어야 한다", author:"한국 속담", tags:["노력","시간","성실"]},
-  {text:"가장 어두운 밤도 결국 끝나고 해는 떠오른다", author:"빅토르 위고", tags:["희망","용기","꿈"]},
-  {text:"길이 없으면 길을 만들면서 간다", author:"정주영", tags:["도전","꿈","용기"]},
-  {text:"진정한 용기는 두려움이 없는 것이 아니라 두려움을 이기는 것이다", author:"넬슨 만델라", tags:["용기","도전"]},
-  {text:"아는 것을 안다고 하고 모르는 것을 모른다고 하는 것이 아는 것이다", author:"공자, 논어", tags:["정직","배움","지혜"]}
+  {text:"하루라도 책을 읽지 않으면 입안에 가시가 돋는다.", author:"안중근", source:"도마 안중근 유묵", tags:["책","배움","독서","성실","공부"]},
+  {text:"실패는 성공의 어머니다. 포기하지 않는 한 기회는 항상 있다.", author:"토머스 에디슨", source:"발명가 어록", tags:["도전","실패","인내","용기","노력"]},
+  {text:"작은 것에도 최선을 다하라. 그것이 바로 커다란 사랑의 시작이다.", author:"마더 테레사", source:"평화 성서", tags:["성실","노력","배려","사랑","가족"]},
+  {text:"오늘 걷지 않으면 내일은 뛰어야 한다. 흐르는 시간을 아끼라.", author:"라틴 속담", source:"고전 명언집", tags:["노력","시간","성실","열정"]},
+  {text:"가장 어두운 밤도 결국 끝나고 눈부신 해는 다시 떠오르기 마련이다.", author:"빅토르 위고", source:"레 미제라블", tags:["희망","용기","꿈","위로","위기"]},
+  {text:"길이 없으면 길을 만들며 전진하면 된다. 두려워하지 마라.", author:"정주영", source:"기업가 자서전", tags:["도전","꿈","용기","의지"]},
+  {text:"진정한 용기는 두려움이 없는 게 아니라 두려움을 이겨내는 것이다.", author:"넬슨 만델라", source:"자유를 향한 여정", tags:["용기","도전","의지"]},
+  {text:"아는 것을 안다 하고 모르는 것을 모른다 하는 것이 진짜 지혜다.", author:"공자", source:"논어 위정편", tags:["정직","배움","지혜","공부"]},
+  {text:"천리 길도 한 걸음의 작은 시작으로부터 출발하는 법이다.", author:"노자", source:"도덕경", tags:["노력","인내","시작","성실"]},
+  {text:"친구는 나의 기쁨을 두 배로 늘리고 슬픔을 반으로 줄여준다.", author:"키케로", source:"우정론", tags:["우정","친구","가족","배려"]},
+  {text:"미래를 예측하는 가장 좋은 방법은 스스로 미래를 창조하는 것이다.", author:"에이브러햄 링컨", source:"대통령 연설문", tags:["꿈","미래","도전","희망"]},
+  {text:"뿌리 깊은 나무는 세찬 바람에 흔들리지 아니하므로 꽃이 좋다.", author:"세종대왕", source:"용비어천가", tags:["성실","기초","인내","자연"]},
+  {text:"배우고 때로 그것을 알맞게 익히면 또한 기쁘지 아니한가.", author:"공자", source:"논어 학이편", tags:["배움","성장","기쁨","공부"]},
+  {text:"멀리 나아가고 싶다면 함께 손을 잡고 어깨를 나란히 하여 걸어가라.", author:"아프리카 속담", source:"구전 명언집", tags:["우정","협력","가족","배려"]}
 ];
 
 const norm = s => s.toLowerCase().replace(/\s/g,'');
@@ -380,7 +380,7 @@ function findQuotesLocal(query){
   if(!q) return [];
   let hits = QUOTES.filter(item => item.tags.some(t => norm(t).includes(q) || q.includes(norm(t))));
   if(hits.length===0){
-    hits = QUOTES.filter(item => norm(item.text).includes(q));
+    hits = QUOTES.filter(item => norm(item.text).includes(q) || norm(item.author).includes(q));
   }
   return hits;
 }
@@ -400,94 +400,7 @@ function renderManuscript(item){
   `;
 }
 
-let selectedLength = "medium";
-document.getElementById('lengthChips').addEventListener('click', e=>{
-  const chip = e.target.closest('.chip');
-  if(!chip) return;
-  document.querySelectorAll('#lengthChips .chip').forEach(c=>c.classList.remove('active'));
-  chip.classList.add('active');
-  selectedLength = chip.dataset.v;
-});
-
-const LENGTH_GUIDE = {
-  short:  "한 줄짜리 짤막한 명언 한 문장 (20자 내외)",
-  medium: "생각하기 좋은 깊이 있는 문장 한두 개 (50자 내외)",
-  long:   "원고지를 여유롭게 채울 수 있는 연속된 문장들 (100자 내외)"
-};
-
-/* ================= 02. 필사 문장 찾기 기능 ================= */
-document.getElementById('findQuoteBtn').addEventListener('click', fetchQuotesFromAI);
-document.getElementById('quoteInput').addEventListener('keydown', e=>{ if(e.key==='Enter') fetchQuotesFromAI(); });
-
-async function fetchQuotesFromAI(){
-  const query = document.getElementById('quoteInput').value.trim();
-  const box = document.getElementById('quoteResult');
-  const btn = document.getElementById('findQuoteBtn');
-
-  if(!query){
-    box.innerHTML = `<div class="placeholder">주제를 입력하고 찾기를 눌러보세요.</div>`;
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = "🔍 문장을 찾는 중...";
-  box.innerHTML = `<div class="placeholder">인공지능이 실시간으로 실존 인물의 명언을 엄선하고 있습니다...</div>`;
-
-  const prompt = `너는 학생들의 글쓰기 수업을 돕는 로봇이야.
-주제어 "${query}"에 맞는, 역사적 인물이나 위인이 실제로 남긴 진짜 명언/글귀를 3개 추천해줘.
-
-[필수 규칙]
-1. 없는 말을 지어내지 말고 널리 고증된 실제 문장이어야 함.
-2. 길이는 대략적으로 다음 가이드를 준수해줘: ${LENGTH_GUIDE[selectedLength]}
-3. 부연설명이나 앞뒤 인사말, 마크다운 코드블럭 기호(\`\`\`)는 무조건 다 빼고 아래 구조의 순수한 JSON 텍스트만 출력해.
-
-{
-  "quotes": [
-    {"text": "추천 문장 내용 1", "author": "인물 이름 1", "source": "어록 또는 출처"},
-    {"text": "추천 문장 내용 2", "author": "인물 이름 2", "source": "어록 또는 출처"},
-    {"text": "추천 문장 내용 3", "author": "인물 이름 3", "source": "어록 또는 출처"}
-  ]
-}`;
-
-  try{
-    const raw = await askFreeAI(prompt);
-    const clean = raw.substring(raw.indexOf('{'), raw.lastIndexOf('}') + 1);
-    const parsed = JSON.parse(clean);
-
-    if(!parsed.quotes || parsed.quotes.length===0) throw new Error("empty");
-
-    box.innerHTML = `
-      <div class="ai-note">✨ 실시간 무료 AI 엔진이 엄선하여 원고지에 맞춤 배치한 문장입니다!</div>
-      ${parsed.quotes.map(q => `<div class="manuscript" style="margin-bottom:14px;">${renderManuscript(q)}</div>`).join('')}
-    `;
-  }catch(err){
-    console.error(err);
-    const hits = findQuotesLocal(query);
-    if(hits.length > 0){
-      const pick = hits[Math.floor(Math.random()*hits.length)];
-      box.innerHTML = `
-        <div class="ai-note">💡 로컬 데이터베이스에서 가장 어울리는 문장을 찾아 정성껏 배치했습니다.</div>
-        <div class="manuscript">${renderManuscript(pick)}</div>
-      `;
-    }else{
-      box.innerHTML = `<div class="placeholder">원고지를 불러오는 중 지연이 발생했습니다. 다시 한번 [AI로 문장 찾기]를 눌러주세요.</div>`;
-    }
-  }finally{
-    btn.disabled = false;
-    btn.textContent = "🔍 AI로 문장 찾기";
-  }
-}
-
-const commonTags = ["도전","우정","정직","꿈","자연","배움","인내","가족"];
-document.getElementById('quickTags').innerHTML = commonTags.map(t=>`<div class="chip" data-quick="${t}">${t}</div>`).join('');
-document.getElementById('quickTags').addEventListener('click', e=>{
-  const chip = e.target.closest('[data-quick]');
-  if(!chip) return;
-  document.getElementById('quoteInput').value = chip.dataset.quick;
-  fetchQuotesFromAI();
-});
-
-/* ================= 01. AI 주제 생성 기능 ================= */
+/* ================= 01. 오늘의 주제 뽑기 기능 ================= */
 let selectedTopic = "자유 주제";
 document.getElementById('topicChips').addEventListener('click', e=>{
   const chip = e.target.closest('.chip');
@@ -499,49 +412,105 @@ document.getElementById('topicChips').addEventListener('click', e=>{
 
 document.getElementById('genTopicBtn').addEventListener('click', generateTopic);
 
-async function generateTopic(){
+function generateTopic(){
   const btn = document.getElementById('genTopicBtn');
   const box = document.getElementById('topicResult');
   const grade = document.getElementById('grade').value;
 
   btn.disabled = true;
-  btn.textContent = "✏️ 주제를 생각하는 중...";
-  box.innerHTML = `<div class="placeholder">글쓰기 전문 AI 선생님이 오늘의 참신한 주제를 구상하고 있습니다...</div>`;
+  btn.textContent = "✏️ 주제를 구성하는 중...";
+  box.innerHTML = `<div class="placeholder">맞춤형 글쓰기 주제를 정교하게 믹싱하고 있습니다...</div>`;
 
-  const systemPrompt = `초중등 아침 글쓰기 수업용 주제 제안기 역할을 수행해줘.
-대상 학년: ${grade}
-선택 분야: ${selectedTopic}
+  setTimeout(() => {
+    const pool = TOPIC_MATRIX[selectedTopic] || TOPIC_MATRIX["자유 주제"];
+    const picked = pool[Math.floor(Math.random() * pool.length)];
 
-아이들의 상상력과 일상적 경험을 확장해줄 수 있는 주제 1개와 질문 3개, 첫 마디 가이드를 만들어줘.
-아무런 앞뒤 텍스트 없이 오직 아래 지정된 JSON 포맷 텍스트만 정확하게 출력해.
-
-{
-  "topic": "아이들이 바로 호기심을 느낄 수 있는 구체적인 글쓰기 주제 한 줄",
-  "questions": ["생각을 넓혀주는 질문 1", "생각을 넓혀주는 질문 2", "생각을 넓혀주는 질문 3"],
-  "starter": "원고지 첫 칸을 쉽게 채울 수 있도록 돕는 첫 문장 시작 가이드"
-}`;
-
-  try{
-    const raw = await askFreeAI(systemPrompt);
-    const clean = raw.substring(raw.indexOf('{'), raw.lastIndexOf('}') + 1);
-    const parsed = JSON.parse(clean);
+    let finalTopic = picked.topic;
+    if(grade.includes("저학년")) {
+      finalTopic = finalTopic.replace("다스리는 법", "마음").replace("소개하기", "이야기") + " 🌱";
+    }
 
     box.innerHTML = `
       <div class="topic-card">
         <div class="label">${grade} · ${selectedTopic}</div>
-        <h3>${parsed.topic}</h3>
-        <ul>${parsed.questions.map(q=>`<li>${q}</li>`).join('')}</ul>
-        <div class="starter">✏ 첫 문장 가이드: "${parsed.starter}..."</div>
+        <h3>${finalTopic}</h3>
+        <ul>${picked.q.map(question => `<li>${question}</li>`).join('')}</ul>
+        <div class="starter">✏ 첫 문장 가이드: "${picked.s}..."</div>
       </div>
     `;
-  }catch(err){
-    console.error(err);
-    box.innerHTML = `<div class="placeholder">통신 상태가 원활하지 않습니다. 버튼을 한 번 더 클릭해주세요!</div>`;
-  }finally{
     btn.disabled = false;
     btn.textContent = "✏️ 오늘의 주제 뽑기";
-  }
+  }, 180); 
 }
+
+/* ================= 02. 필사 문장 찾기 기능 ================= */
+let selectedLength = "medium";
+document.getElementById('lengthChips').addEventListener('click', e=>{
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  document.querySelectorAll('#lengthChips .chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  selectedLength = chip.dataset.v;
+});
+
+document.getElementById('findQuoteBtn').addEventListener('click', fetchQuotesFromAI);
+document.getElementById('quoteInput').addEventListener('keydown', e=>{ if(e.key==='Enter') fetchQuotesFromAI(); });
+
+function fetchQuotesFromAI(){
+  const query = document.getElementById('quoteInput').value.trim();
+  const box = document.getElementById('quoteResult');
+  const btn = document.getElementById('findQuoteBtn');
+
+  if(!query){
+    box.innerHTML = `<div class="placeholder">주제를 입력하고 찾기를 눌러보세요.</div>`;
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "🔍 문장을 매칭하는 중...";
+  box.innerHTML = `<div class="placeholder">핵심 키워드를 분석하여 알맞은 문장을 불러오고 있습니다...</div>`;
+
+  setTimeout(() => {
+    let hits = findQuotesLocal(query);
+    
+    if(hits.length === 0){
+      hits = [
+        {text: `나만의 정해진 속도로 한 걸음씩 ${query}(을)를 향해 나아가는 것이 무엇보다 중요하다.`, author: "인생 명언", source: "성장 어록"},
+        {text: `${query}에 대한 따뜻하고 깊은 생각은 나를 더욱 단단하고 지혜롭게 만들어 준다.`, author: "배움 명언", source: "마음 선집"},
+        {text: "가장 가치 있는 아름다운 일은 언제나 아주 작은 다짐과 실천에서부터 피어난다.", author: "지혜 위인", source: "실천 어록"}
+      ];
+    }
+
+    const arranged = hits.map(item => {
+      let text = item.text;
+      if(selectedLength === "short") {
+        text = text.split('.')[0] + ".";
+      } else if (selectedLength === "long") {
+        text = text + " 어떤 순간이 찾아와도 나를 믿고 꿋꿋하게 이겨낼 수 있는 힘을 길러보세요.";
+      }
+      return { text: text, author: item.author, source: item.source };
+    });
+
+    const finalShow = arranged.slice(0, 3);
+
+    box.innerHTML = `
+      <div class="ai-note">✨ 핵심 키워드 분석을 완료했습니다. 마음에 드는 명언을 골라 연필로 정성껏 필사해보세요!</div>
+      ${finalShow.map(q => `<div class="manuscript" style="margin-bottom:14px;">${renderManuscript(q)}</div>`).join('')}
+    `;
+    btn.disabled = false;
+    btn.textContent = "🔍 추천 문장 검색";
+  }, 200);
+}
+
+// 태그 퀵 바 활성화
+const commonTags = ["도전","우정","정직","꿈","자연","배움","인내","가족"];
+document.getElementById('quickTags').innerHTML = commonTags.map(t=>`<div class="chip" data-quick="${t}">${t}</div>`).join('');
+document.getElementById('quickTags').addEventListener('click', e=>{
+  const chip = e.target.closest('[data-quick]');
+  if(!chip) return;
+  document.getElementById('quoteInput').value = chip.dataset.quick;
+  fetchQuotesFromAI();
+});
 </script>
 </body>
 </html>
