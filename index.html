@@ -253,6 +253,97 @@
     text-align:center; font-size:12px; color:#A79F8C;
     padding:0 20px 50px; font-family:'Noto Serif KR',serif; line-height:1.7;
   }
+
+  /* ---------- 공지 ---------- */
+  .notice-fab{
+    position:fixed; right:18px; bottom:18px; z-index:900;
+    display:flex; align-items:center; gap:6px;
+    font-family:'Noto Sans KR',sans-serif; font-weight:700; font-size:13.5px;
+    background:var(--ink); color:#fff; border:none; border-radius:999px;
+    padding:11px 18px; cursor:pointer; box-shadow:var(--shadow);
+    transition:transform .12s ease, background .15s ease;
+  }
+  .notice-fab:hover{background:var(--dawn-2);}
+  .notice-fab:active{transform:scale(0.97);}
+  .notice-overlay{
+    position:fixed; inset:0; z-index:1000;
+    background:rgba(36,31,56,0.55); backdrop-filter:blur(3px);
+    display:none; align-items:center; justify-content:center; padding:20px;
+  }
+  .notice-overlay.open{display:flex;}
+  .notice-modal{
+    background:var(--card); border:1px solid var(--paper-line); border-radius:20px;
+    box-shadow:0 20px 60px rgba(36,31,56,0.35);
+    width:100%; max-width:640px; max-height:88vh;
+    display:flex; flex-direction:column; overflow:hidden;
+    animation:noticeIn .22s ease;
+  }
+  @keyframes noticeIn{ from{opacity:0; transform:translateY(12px) scale(.98);} to{opacity:1; transform:none;} }
+  .notice-head{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:16px 22px; color:#FBF6EA;
+    background:linear-gradient(135deg, var(--dawn-1), var(--dawn-2) 60%, var(--dawn-3));
+  }
+  .notice-head h2{font-family:'Gaegu',cursive; font-size:26px; margin:0; font-weight:700;}
+  .notice-x{
+    background:rgba(255,255,255,0.15); color:#fff; border:none; border-radius:50%;
+    width:32px; height:32px; font-size:18px; line-height:1; cursor:pointer;
+  }
+  .notice-x:hover{background:rgba(255,255,255,0.3);}
+  .notice-body{
+    padding:22px 24px; overflow-y:auto; flex:1;
+    font-family:'Noto Serif KR',serif; font-size:14.5px; line-height:1.8; color:var(--ink);
+    word-break:keep-all; overflow-wrap:anywhere;
+  }
+  .notice-body > :first-child{margin-top:0;}
+  .notice-body > :last-child{margin-bottom:0;}
+  .notice-body h1,.notice-body h2,.notice-body h3,.notice-body h4{
+    font-family:'Gaegu',cursive; line-height:1.35; margin:22px 0 8px; color:var(--ink);
+  }
+  .notice-body h1{font-size:30px;} .notice-body h2{font-size:25px;}
+  .notice-body h3{font-size:21px;} .notice-body h4{font-size:18px;}
+  .notice-body p{margin:0 0 12px;}
+  .notice-body a{color:var(--dawn-3); font-weight:700; text-decoration:underline; text-underline-offset:2px;}
+  .notice-body ul,.notice-body ol{margin:0 0 12px; padding-left:22px;}
+  .notice-body li{margin-bottom:3px;}
+  .notice-body blockquote{
+    margin:0 0 12px; padding:8px 14px; border-left:4px solid var(--gold);
+    background:var(--paper); border-radius:0 10px 10px 0; color:var(--ink-soft);
+  }
+  .notice-body blockquote p:last-child{margin-bottom:0;}
+  .notice-body hr{border:none; border-top:1.5px dashed var(--paper-line); margin:18px 0;}
+  .notice-body img{max-width:100%; height:auto; border-radius:10px; display:block; margin:10px 0;}
+  .notice-body code{background:var(--paper); border:1px solid var(--paper-line); border-radius:5px; padding:1px 5px; font-size:13px;}
+  .notice-body pre{background:var(--paper); border:1px solid var(--paper-line); border-radius:10px; padding:12px 14px; overflow-x:auto;}
+  .notice-body pre code{background:none; border:none; padding:0;}
+  .notice-body table{border-collapse:collapse; width:100%; margin:0 0 12px; font-size:13.5px;}
+  .notice-body th,.notice-body td{border:1px solid var(--paper-line); padding:7px 10px; text-align:left;}
+  .notice-body th{background:var(--paper);}
+  /* HTML로 쓸 때 쓸 수 있는 지정 클래스 */
+  .notice-body .n-box{background:var(--paper); border:1.5px solid var(--paper-line); border-radius:12px; padding:14px 16px; margin:0 0 12px;}
+  .notice-body .n-warn{background:#FFF4F2; border:1.5px solid #F0C6C0; color:#8A2A2A; border-radius:12px; padding:14px 16px; margin:0 0 12px;}
+  .notice-body .n-center{text-align:center;}
+  .notice-body .n-tag{display:inline-block; background:var(--red); color:#fff; font-family:'Noto Sans KR',sans-serif; font-size:11px; font-weight:700; letter-spacing:.06em; padding:2px 9px; border-radius:999px;}
+  .yt-embed{position:relative; width:100%; padding-top:56.25%; margin:10px 0 14px; border-radius:12px; overflow:hidden; background:#000;}
+  .yt-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .notice-body a.n-btn{
+    display:inline-block; background:var(--ink); color:#fff; text-decoration:none;
+    font-family:'Noto Sans KR',sans-serif; font-weight:700; font-size:15px;
+    padding:13px 28px; border-radius:12px; transition:background .15s ease, transform .12s ease;
+  }
+  .notice-body a.n-btn:hover{background:var(--dawn-2);}
+  .notice-body a.n-btn:active{transform:scale(0.98);}
+  /* 이미 설치된 Windows 앱 안에서는 숨기는 영역 (n-web-only) */
+  .notice-overlay.in-app .n-web-only{display:none;}
+  .notice-state{text-align:center; color:#B7AF9C; font-style:italic; padding:26px 10px;}
+  .notice-foot{padding:12px 22px; border-top:1.5px dashed var(--paper-line); display:flex; justify-content:flex-end; align-items:center; gap:10px;}
+  .notice-never{
+    font-family:'Noto Sans KR',sans-serif; font-size:13px; font-weight:500;
+    background:#fff; color:var(--ink-soft); border:1.5px solid var(--paper-line);
+    border-radius:12px; padding:9px 16px; cursor:pointer; transition:all .15s ease;
+  }
+  .notice-never:hover{border-color:var(--gold); color:var(--ink); background:var(--paper);}
+
 </style>
 </head>
 <body>
@@ -383,6 +474,7 @@
     <div>© 2026 한준서</div>
     <a href="https://www.youtube.com/watch?v=9-YC0yJ20TQ" target="_blank" rel="noopener noreferrer" class="manual-btn">
                 사용 설명서
+</a>
 </footer>
 
 <script>
@@ -862,5 +954,279 @@ document.getElementById('proverbQuickTags').addEventListener('click', e=>{
   fetchProverbFromAI();
 });
 </script>
+
+<!-- 공지 -->
+<button class="notice-fab" id="noticeFab" type="button" aria-label="공지 보기">📢 공지</button>
+<div class="notice-overlay" id="noticeOverlay" role="dialog" aria-modal="true" aria-labelledby="noticeTitle">
+  <div class="notice-modal">
+    <div class="notice-head">
+      <h2 id="noticeTitle">📢 공지사항</h2>
+      <button class="notice-x" id="noticeX" type="button" aria-label="닫기">✕</button>
+    </div>
+    <div class="notice-body" id="noticeBody"></div>
+    <div class="notice-foot">
+      <button class="notice-never" id="noticeNever" type="button">평생 안 보기</button>
+      <button class="primary" id="noticeClose" type="button" style="padding:9px 22px; font-size:13.5px;">닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= 공지 기능 =================
+   GitHub 저장소(skx72/schoooooool)의 notice.md 내용을 불러와 팝업으로 보여줍니다.
+   - 마크다운 + HTML 모두 사용 가능 (정해진 틀 안에서 표시됨)
+   - 유튜브 링크를 쓰면 그 자리에 영상 플레이어가 나타납니다.
+*/
+(function(){
+  const REPO = 'skx72/schoooooool';
+  const FILE = 'notice.md';
+  const SOURCES = [
+    FILE,
+    'https://raw.githubusercontent.com/' + REPO + '/main/' + FILE,
+    'https://raw.githubusercontent.com/' + REPO + '/master/' + FILE
+  ];
+
+  const overlay = document.getElementById('noticeOverlay');
+  const bodyEl  = document.getElementById('noticeBody');
+  if(window.chrome && window.chrome.webview) overlay.classList.add('in-app');   // Windows 앱 안
+  let noticeText = null;   // 불러온 원문 캐시
+  let fetched = false;
+
+  // '평생 안 보기' — 이 공지 내용을 기억해 두고, 내용이 바뀌면(새 공지) 다시 띄웁니다.
+  const HIDE_KEY = 'notice_hidden_hash';
+  const hashText = t => { let h = 5381; t = t.trim(); for(let i = 0; i < t.length; i++) h = ((h << 5) + h + t.charCodeAt(i)) | 0; return String(h); };
+  const isHidden = () => { try{ return !!noticeText && localStorage.getItem(HIDE_KEY) === hashText(noticeText); }catch(e){ return false; } };
+
+  /* ---------- 불러오기 ---------- */
+  async function fetchNotice(){
+    for (const src of SOURCES){
+      try{
+        const res = await fetch(src + (src.includes('?') ? '&' : '?') + 't=' + Date.now(), {cache:'no-store'});
+        if(!res.ok) continue;
+        const txt = await res.text();
+        if(!txt.trim() || /^\s*<!doctype html/i.test(txt)) continue;
+        return txt;
+      }catch(e){ /* 다음 주소 시도 */ }
+    }
+    return null;
+  }
+
+  /* ---------- 마크다운 → HTML ---------- */
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  function inline(s){
+    const codes = [];
+    s = s.replace(/`([^`]+)`/g, (_, c) => { codes.push(esc(c)); return '\u0000' + (codes.length-1) + '\u0000'; });
+    s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img alt="$1" src="$2">');
+    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
+    s = s.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+    s = s.replace(/(^|\s)(https?:\/\/[^\s<"]+)/g, '$1<a href="$2">$2</a>');
+    return s.replace(/\u0000(\d+)\u0000/g, (_, i) => '<code>' + codes[i] + '</code>');
+  }
+
+  const isHtmlLine = l => /^\s*<\/?[a-zA-Z!]/.test(l);
+  const isBlockStart = l => /^```/.test(l) || /^#{1,4}\s/.test(l) || /^\s*([-*_])\s*\1\s*\1[\s\-*_]*$/.test(l)
+    || /^\s*>/.test(l) || /^\s*[-*+]\s+/.test(l) || /^\s*\d+[.)]\s+/.test(l) || isHtmlLine(l);
+
+  function mdToHtml(md){
+    const lines = md.replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '').split('\n');
+    const out = [];
+    let i = 0;
+    while(i < lines.length){
+      const line = lines[i];
+      if(!line.trim()){ i++; continue; }
+
+      if(/^```/.test(line)){
+        const buf = []; i++;
+        while(i < lines.length && !/^```/.test(lines[i])){ buf.push(lines[i]); i++; }
+        i++;
+        out.push('<pre><code>' + esc(buf.join('\n')) + '</code></pre>');
+        continue;
+      }
+      if(isHtmlLine(line)){                       // HTML 블록은 그대로 통과 (나중에 정화)
+        const buf = [];
+        while(i < lines.length && lines[i].trim()){ buf.push(lines[i]); i++; }
+        out.push(buf.join('\n'));
+        continue;
+      }
+      let m = line.match(/^(#{1,4})\s+(.*)$/);
+      if(m){ out.push('<h' + m[1].length + '>' + inline(m[2].trim()) + '</h' + m[1].length + '>'); i++; continue; }
+      if(/^\s*([-*_])\s*\1\s*\1[\s\-*_]*$/.test(line)){ out.push('<hr>'); i++; continue; }
+      if(/^\s*>/.test(line)){
+        const buf = [];
+        while(i < lines.length && /^\s*>/.test(lines[i])){ buf.push(lines[i].replace(/^\s*>\s?/, '')); i++; }
+        out.push('<blockquote>' + mdToHtml(buf.join('\n')) + '</blockquote>');
+        continue;
+      }
+      if(/^\s*[-*+]\s+/.test(line)){
+        const items = [];
+        while(i < lines.length && /^\s*[-*+]\s+/.test(lines[i])){ items.push('<li>' + inline(lines[i].replace(/^\s*[-*+]\s+/, '')) + '</li>'); i++; }
+        out.push('<ul>' + items.join('') + '</ul>');
+        continue;
+      }
+      if(/^\s*\d+[.)]\s+/.test(line)){
+        const items = [];
+        while(i < lines.length && /^\s*\d+[.)]\s+/.test(lines[i])){ items.push('<li>' + inline(lines[i].replace(/^\s*\d+[.)]\s+/, '')) + '</li>'); i++; }
+        out.push('<ol>' + items.join('') + '</ol>');
+        continue;
+      }
+      const buf = [];
+      while(i < lines.length && lines[i].trim() && (buf.length === 0 || !isBlockStart(lines[i]))){ buf.push(inline(lines[i].trim())); i++; }
+      out.push('<p>' + buf.join('<br>') + '</p>');
+    }
+    return out.join('\n');
+  }
+
+  /* ---------- 안전하게 정화 (허용된 태그/속성만 남김) ---------- */
+  const ALLOWED = new Set(['A','B','STRONG','I','EM','U','DEL','S','P','BR','HR','H1','H2','H3','H4','UL','OL','LI',
+    'BLOCKQUOTE','CODE','PRE','IMG','DIV','SPAN','TABLE','THEAD','TBODY','TR','TH','TD','SMALL','MARK','SUB','SUP',
+    'FIGURE','FIGCAPTION','DETAILS','SUMMARY']);
+  const DROP = /^(SCRIPT|STYLE|IFRAME|OBJECT|EMBED|LINK|META|FORM|INPUT|BUTTON|TEXTAREA|SELECT|SVG|MATH|TEMPLATE|NOSCRIPT|BASE)$/;
+  const safeUrl = u => {
+    u = (u || '').trim();
+    if(/^(https?:|mailto:|#)/i.test(u)) return true;
+    return !/^[a-z][a-z0-9+.\-]*:/i.test(u) && !u.startsWith('//');   // 상대 경로만 허용
+  };
+
+  function sanitize(html){
+    const doc = new DOMParser().parseFromString('<body>' + html + '</body>', 'text/html');
+    (function walk(node){
+      Array.from(node.childNodes).forEach(ch => {
+        if(ch.nodeType === 8){ ch.remove(); return; }
+        if(ch.nodeType !== 1) return;
+        const tag = ch.tagName;
+        if(!ALLOWED.has(tag)){
+          if(DROP.test(tag)){ ch.remove(); return; }
+          walk(ch);
+          while(ch.firstChild) node.insertBefore(ch.firstChild, ch);
+          ch.remove();
+          return;
+        }
+        Array.from(ch.attributes).forEach(a => {
+          const n = a.name.toLowerCase();
+          let keep = false;
+          if(tag === 'A' && n === 'href') keep = safeUrl(a.value);
+          else if(tag === 'IMG' && n === 'src') keep = safeUrl(a.value);
+          else if(n === 'alt' || n === 'title' || n === 'colspan' || n === 'rowspan') keep = true;
+          else if((n === 'width' || n === 'height') && /^\d{1,4}%?$/.test(a.value)) keep = true;
+          else if(n === 'class'){
+            const cls = a.value.split(/\s+/).filter(c => /^n-[a-z0-9-]+$/.test(c)).join(' ');
+            if(cls){ ch.setAttribute('class', cls); keep = true; }
+          }
+          if(!keep) ch.removeAttribute(a.name);
+        });
+        if(tag === 'A'){ ch.setAttribute('target', '_blank'); ch.setAttribute('rel', 'noopener noreferrer'); }
+        if(tag === 'IMG'){ ch.setAttribute('loading', 'lazy'); ch.setAttribute('referrerpolicy', 'no-referrer'); }
+        walk(ch);
+      });
+    })(doc.body);
+    return doc.body;
+  }
+
+  /* ---------- 유튜브 링크 → 영상 미리보기 ---------- */
+  function ytInfo(url){
+    try{
+      const u = new URL(url, location.href);
+      const h = u.hostname.replace(/^www\.|^m\./, '');
+      let id = null;
+      if(h === 'youtu.be') id = u.pathname.slice(1).split('/')[0];
+      else if(h === 'youtube.com' || h === 'music.youtube.com' || h === 'youtube-nocookie.com'){
+        if(u.pathname === '/watch') id = u.searchParams.get('v');
+        else { const m = u.pathname.match(/^\/(?:embed|shorts|live|v)\/([\w-]+)/); if(m) id = m[1]; }
+      }
+      if(!id || !/^[\w-]{6,15}$/.test(id)) return null;
+      let start = 0;
+      const t = u.searchParams.get('t') || u.searchParams.get('start');
+      if(t){
+        const m = t.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s?)?$/);
+        if(m) start = (+m[1]||0)*3600 + (+m[2]||0)*60 + (+m[3]||0);
+      }
+      return {id, start};
+    }catch(e){ return null; }
+  }
+
+  function embedYouTube(root){
+    root.querySelectorAll('a[href]').forEach(a => {
+      const info = ytInfo(a.getAttribute('href'));
+      if(!info) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'yt-embed';
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + info.id + (info.start ? '?start=' + info.start : '');
+      f.title = 'YouTube 영상';
+      f.loading = 'lazy';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      wrap.appendChild(f);
+      const p = a.parentElement;
+      if(p && p.tagName === 'P' && p.childNodes.length === 1) p.replaceWith(wrap);
+      else a.replaceWith(wrap);
+    });
+  }
+
+  /* ---------- 표시 ---------- */
+  function state(msg){
+    bodyEl.replaceChildren();
+    const d = document.createElement('div');
+    d.className = 'notice-state';
+    d.textContent = msg;
+    bodyEl.appendChild(d);
+  }
+
+  function render(){
+    if(!noticeText){ state('등록된 공지가 없어요.'); return; }
+    const root = sanitize(mdToHtml(noticeText));
+    embedYouTube(root);
+    bodyEl.replaceChildren(...Array.from(root.childNodes));
+    bodyEl.scrollTop = 0;
+  }
+
+  function openNotice(){
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('noticeClose').focus();
+  }
+  function closeNotice(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    bodyEl.replaceChildren();      // 닫을 때 영상 재생도 같이 멈춤
+  }
+
+  async function showNotice(){
+    if(!fetched){
+      state('공지를 불러오는 중...');
+      openNotice();
+      noticeText = await fetchNotice();
+      fetched = true;
+    } else {
+      openNotice();
+    }
+    render();
+  }
+
+  document.getElementById('noticeFab').addEventListener('click', showNotice);
+  document.getElementById('noticeX').addEventListener('click', closeNotice);
+  document.getElementById('noticeClose').addEventListener('click', closeNotice);
+  document.getElementById('noticeNever').addEventListener('click', () => {
+    try{ if(noticeText) localStorage.setItem(HIDE_KEY, hashText(noticeText)); }catch(e){}
+    closeNotice();
+  });
+  overlay.addEventListener('click', e => { if(e.target === overlay) closeNotice(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && overlay.classList.contains('open')) closeNotice(); });
+
+  /* ---------- 처음 열자마자 공지 띄우기 ---------- */
+  (async function autoOpen(){
+    noticeText = await fetchNotice();
+    fetched = true;
+    if(noticeText && !isHidden()){ openNotice(); render(); }   // 공지가 있고, '평생 안 보기'를 안 눌렀을 때만 자동 팝업
+  })();
+
+  window.__notice = {mdToHtml, sanitize};          // (테스트용)
+})();
+</script>
+
 </body>
 </html>
